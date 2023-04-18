@@ -34,6 +34,15 @@
     -moz-osx-font-smoothing: grayscale
 }
 
+a.author {
+  text-decoration: none;
+  color: #333333;
+}
+
+a.author:hover {
+  text-decoration: none;
+}
+
 .w-icon-slider-right:before {
     content: "\e600";
     color: white;
@@ -493,6 +502,15 @@ h6 {
     color: white;
 }
 
+.mybtn {
+  font-size: 16px !important;
+  padding: 11px 25px !important;
+  /* font-weight: normal !important; */
+}
+.vistec {
+  font-size: 21px;
+  color: #6c6c6c;
+}
 body {
     /* font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; */
     /* font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; */
@@ -503,6 +521,10 @@ body {
 /* code {
 
 } */
+
+.lessbottom {
+  margin-bottom: 0px !important;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro",Calibri,Candara,Arial,sans-serif;
