@@ -176,7 +176,10 @@
       <div class="col-md-12">
         <h2>Our pipeline</h2>
         <p>
-        The general idea of our method is simple: we first encode the input image into a feature vector that <em>disentangles</em> the light information from other information, then we modify the light encoding and decode it. Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly. This DDIM can be trained solely on a 2D face dataset wihout any relit ground truth, 3D or lighting data.
+        The general idea of our method is simple: we first encode an input image into a feature vector that <em>disentangles</em> the lighting information from all other information in the image, then modify the light information and decode it. The challenge here is how to disentangle it well enough so that the decoding will only affect the shading and not the person’s shape or identity. Our key idea is to leverage a conditional diffusion implicit model with a novel conditioning technique for this task and learn the complex light interactions implicitly via the DDIM trained solely on a 2D face dataset, without any relit ground truth, 3D or lighting data.
+
+        <!-- Our key idea is to use an off-the-shelf light estimator for encoding and a DDIM decoder that learns to disentangle the lighting information and model the complex lighting implicitly. This process can be trained solely on a 2D face dataset wihout any relit ground truth, 3D or lighting data, making it easier to scale and operate on challenging real-world scenarios. -->
+<!-- The main challenge is how to disan Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly.  -->
         </p>
         <p>
           In particular, we use off-the-shelf estimators (DECA, Arcface and DiffAE) to encode each training image into encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a DDIM decoder conditioned on these encodings. To relight an input face image, we reverse the generative process of the DDIM conditioned on the encodings of the input image to obtain xT. Then, we modify the light encoding and decode xT back to a relit output.
