@@ -1,1 +1,771 @@
-Hello, world!
+<!DOCTYPE html>
+<html class=" w-mod-ix">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Swiper CSS -->
+
+        <link rel="stylesheet" href="./files/box_swipe/box_swipe.css">
+        <link rel="stylesheet" href="./files/swiper/css/swiper-bundle.min.css">
+
+        <!-- Google tag (gtag.js) -->
+        <script async="" src="./files/js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+        <script src="./files/swiper/js/reshadow.js"></script>
+        <script src="./files/swiper/js/relight.js"></script>
+        <!-- <script src="./files/swiper/js/move_light.js"></script> -->
+        <script src="./files/box_swipe/box_swipe.js"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XB3PR2Y1TQ');
+        </script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title> Diffusion Face Relighting </title>
+        <link rel="stylesheet" href="./files/bootstrap.min.css">
+        <link href="./files/css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./files/Highlight-Clean.css">
+        <link rel="stylesheet" href="./files/styles.css">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="./files/content/logo/tab.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./files/content/logo/tab.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./files/content/logo/tab.png">
+
+        <script src="./files/video_comparison.js.download"></script>
+        <script type="module" src="./files/model-viewer.min.js.download"></script>
+    </head>
+
+<body data-new-gr-c-s-check-loaded="14.1089.0" data-gr-ext-installed="">
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+        <div class="container" style="max-width: 1000px;">
+            <!-- <h1 class="text-center textShineBlack"> <b>DiFaReli <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" style="vertical-align:top" width="40" alt="logo" /> : Diffusion Face Relighting</b></h1> -->
+            <h1 class="text-center textShineBlack"> <b>DiFaReli : Diffusion Face Relighting</b></h1>
+        </div>
+
+        <br>
+        <div class="container" style="max-width: 900px;">
+            <div class="row authors">
+                <div class="col-sm">
+                    <h5 class="text-center" style="font-weight:500;"><a class="text-center"> Puntawat Ponglertnapakorn </a></h5>
+                    <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
+                </div>
+                <div class="col-sm">
+                    <h5 class="text-center" style="font-weight:500;"><a class="text-center"> Nontawat Tritrong</a></h5>
+                    <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
+                </div>
+                <div class="col-sm">
+                    <h5 class="text-center" style="font-weight:500;"><a class="text-center"> Supasorn Suwajanakorn </a></h5>
+                    <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
+                </div>
+            </div>
+            <br>
+            <div class="row affiliate">
+                <div class="col-sm">
+                    <h4 class="text-center" style="font-weight:500;"><a class="text-center"> VISTEC - Vidyasirimedhi Institute of Science and Technology </a></h4>
+                    <h4 class="text-center" style="font-weight:500;"><a class="text-center"> Rayong, Thailand </a></h4>
+                </div>
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="teaser" src="./files/content/image/teaser-1.png" width="900">
+            </div>
+        </div>
+
+        <div class="buttons" style="margin-bottom: 15px;">
+            <a class="btn btn-light" role="button" href="https://arxiv.org/">
+                <svg style="width:24px;height:24px;margin-left:-12px;margin-right:12px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z"></path>
+                </svg>Paper
+            </a>
+            <a class="btn btn-light disabled" role="button" href="https://www.github.com">
+                <svg style="visibility:hidden;width:0px;height:24px;margin-left:-12px;margin-right:12px" width="0px" height="24px" viewBox="0 0 375 531">
+                    <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 "></polygon>
+                </svg>Code (Stay tuned!)
+            </a>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p>
+                    We present a novel approach to single-view face relighting in the wild. 
+                    Handling non-diffuse effects, such as global illumination or cast shadows, has long been a challenge in face relighting.
+                    Prior work often assumes Lambertian surfaces, simplified lighting models or involves estimating 3D shape, albedo, or a shadow map. This estimation, however, is error-prone and requires many training examples with lighting ground truth to generalize well.
+                    Our work bypasses the need for accurate estimation of intrinsic components and can be trained solely on 2D images without any light stage data, multi-view images, or lighting ground truth. 
+                    Our key idea is to leverage a conditional diffusion implicit model (DDIM) for decoding a disentangled light encoding along with other encodings related to 3D shape and facial identity inferred from off-the-shelf estimators.
+                    We also propose a novel conditioning technique that eases the modeling of the complex interaction between light and geometry by using a rendered shading reference to spatially modulate the DDIM.
+                    We achieve state-of-the-art performance on standard benchmark Multi-PIE and can photorealistically relight in-the-wild images.
+                    <!-- <strong> -->
+                    <!-- </strong> -->
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Key challenges</h2>
+                <p>
+                    Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is challenging.
+                    <br>
+                    (1) Requirements of accurate intrinsic components : 
+                    <!-- To solve the relighting problem, prior work often overrely on modeling the light interaction with intrinsic components (e.g., face geometry, albedo and lighting), 
+                    which are diffucult to operate in the wild when the estimation is inaccurate.  -->
+                    Prior work has frequently relied on modeling the light interaction with intrinsic components (e.g., face geometry, albedo, and lighting) to solve the relighting problem, 
+                    which is difficult to operate in the wild when the estimation is inaccurate. For example, when the input image contains cast shadows that need to be removed, these approaches often leave behind shadow residuals in the predicted albedo map. 
+                    <br>
+                    (2) Training data : 
+                    Some previous studies required multiview photos, light stage data, and synthetic data with ground truth lighting, which were difficult to scale and limited the variety of relighting scenarios.
+                    <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to
+                    scale and can limit the diversity of relighting scenarios. -->
+                </p>
+                <p>
+                    <!-- However, our work does not rely on these factors. accurate intrinsic decomposition of the face and can -->
+                    In contrast, our work does not rely on these factors (i.e., accurate intrinsic component of the face) and can
+                    be trained solely on 2D images without any 3D data, multiview images, or lighting ground truth, once given a few
+                    off-the-shelf estimators.
+                    Our work is the state-of-the-art face relighting framework based on a conditional DDIM that can realistically handle cast
+                    shadows and relight other challenging parts, such as the ears, hair, or accessories.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Our pipeline</h2>
+                <p>
+                    We use off-the-shelf estimators (DECA, Arcface and DiffAE) to encode the input image into encodings of light, shape, camera, face embedding, shadow scalar, 
+                    and background image, which are then fed to DDIM via "spatial"  and "non-spatial" conditioning techniques.
+                    <br>
+                    To relight the input face image, we reverse the generative process of the DDIM that is conditioned on the encodings of an input image to obtain xT. 
+                    Then, the modified SH, 3D shape, and camera encodings are rendered to a new shading reference, which is then fed to produce the final relit image.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="overview" src="./files/content/image/overview-1.png">
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Relighting to match target lighting</h2>
+                <p> 
+                    <!-- Our method can realistically relight an input image using different target lights.
+                    As a result, our method can remove the cast shadow that need to be removed for relight to match the target light.
+                    Our shading references doesn't need to contain the face wrinkles, ears or hair in order to relight that part
+                    which means that our method can bypassing the need of accurate intrisic component of the face. -->
+
+                    Our method can realistically relight an input image to match the lighting in a "target" image. This is done by estimating the SH lighting parameters of the target image and use them instead of the input's SH parameters during decoding by our DDIM. The slider below can be used to gradually change the lighting. 
+                    <!-- Notice how cast shadows can be removed or strengthened.  -->
+                    <!-- Our method bypasses the need of an accurate intrinsic component of the face (e.g., 3D face, albedo or a shadow map), as our shading references do not -->
+                    <!-- need to include face wrinkles, ears, or hair to relight those parts. -->
+
+                    <!-- Our method use a relight  
+                    input image and a lighting encoding. We first reverse the generative process to obtain an xT, 
+                    which is then modified by changing the lighting encoding to achieve the
+                    desired lighting conditions -->
+                    <!-- To relight a given input face, we reverse the generative process of the DDIM conditioned on the encodings of an input image to obtain xT, modify the light encoding, and map xT
+                    to the output using our DDIM conditioned on the modified encodings. Our method can realistically relight an input image using different target lights and 
+                    the other challenging parts can also be relight together, such as the ears, hair, or accessories. -->
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width: 900px;">
+        <div class="col-sm">
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <center><p style="font-size: small;">
+                        Move the slider to animate the light.
+                    </p></center>
+                    <div id="slider_relit">
+                        <div id="slider_relit_circle">
+                            <div id="slider_relit_right"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-auto">
+                    <div class="toggle_button">
+                        <button id="relit_ani_button" value="Pause"> Pause </button>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="slide-container swiper">
+                <div class="row g-0 justify-content-center" style="margin-left: -10px; margin-bottom:2px">
+                    <div class="col-sm-gg" style="text-align: center; width: 160px">
+                        <h5> Input </h5>
+                    </div>
+                    <div class="col-sm-gg" style="text-align: center; width: 160px">
+                        <h5> Target </h5>
+                    </div>
+                    <div class="col-sm-gg" style="text-align: center; width: 160px">
+                        <h5> Relit </h5>
+                    </div>
+                    <div class="col-sm-gg" style="text-align: center; width: 160px">
+                        <h5> Animated </h5>
+                    </div>
+                </div>
+                <div class="slide-content s1">
+                    <div class="card-wrapper swiper-wrapper">
+                        <div class="card swiper-slide">
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_0"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_1"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_2"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_3"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card swiper-slide">
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_4"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_5"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_6"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_7"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card swiper-slide">
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_8"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_9"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_10"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_11"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card swiper-slide">
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_12"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_13"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_14"> </div>
+                                </div>
+                            </div>
+
+                            <div class="row-gg g-0 justify-content-center">
+                                <div class="image-content">
+                                    <div id="relit_fig_15"> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Shadow manipulation </h2>
+                <p> 
+                    We show the ability to change the degree of cast shadows by adjusting the scalar "c" in our light encoding. This scalar allows us to strengthen or attenuate cast shadows.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="max-width: 738px;">
+        <div class="col-sm">
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <center><p style="font-size: small;">
+                        Move the slider to change the degree of cast shadows.
+                    </p></center>
+                    <div id="slider">
+                        <div id="slider_circle">
+                            <div id="slider_right"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-auto">
+                    <div class="toggle_button">
+                        <button id="reshadow_ani_button" value="Pause"> Pause </button>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="slide-container swiper">
+                    <div class="slide-content s2">
+                        <div class="card-wrapper swiper-wrapper">
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_0"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_1"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_2"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_3"> </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_4"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_5"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_6"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_7"> </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_8"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_9"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_10"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_11"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_12"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_13"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_14"> </div>
+                                </div>
+                            </div>
+
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <div id="shadow_fig_15"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Rotating light </h2>
+                <p> 
+                <!-- We show the results of relighting a face by rotating the light around. Our method could produce
+                plausible shadows movement under the nose. there is room for improvement to achieve physically
+                consistent cast shadows in motion.  -->
+                We present relit results when the light direction is manually moved around.
+                <!-- Our method can produce plausible movement of shadows under the nose. However, there is still room for improvement to achieve physically consistent cast shadows in motion -->
+                <!-- We show the results of relighting a face by rotating the light around it, achieved by manually adjusting the spherical harmonics (SH) coefficients. -->
+                </p>
+            </div>
+        </div>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-sm text-center">
+                        <video class="mx-auto d-block" width="65%" autoplay muted loop>
+                            <source src="./files/content/rotate_light/out_grid1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="slide-container swiper">
+                    <!-- <div class="row g-0 justify-content-center" style="margin-left: -10px; margin-bottom:2px"> -->
+                    <div class="slide-content s4">
+                        <div class="card-wrapper swiper-wrapper">
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <video class="mx-auto d-block vidrot" width="80%" autoplay muted loop>
+                                        <source src="./files/content/rotate_light/out_grid1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <video class="mx-auto d-block vidrot" width="80%" muted loop>
+                                        <source src="./files/content/rotate_light/out_grid2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <video class="mx-auto d-block vidrot" width="80%" muted loop>
+                                        <source src="./files/content/rotate_light/out_grid3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <video class="mx-auto d-block vidrot" width="80%" muted loop>
+                                        <source src="./files/content/rotate_light/out_grid4.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="divider">
+    <div class="container" style="max-width: 950px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Additional results </h2>
+                <p> 
+                    We present an additional result of relighting a face video. The top shows the original video, and the bottom shows our relit video.
+                </p>
+            </div>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-sm text-center">
+                        <video class="mx-auto d-block" width="70%" autoplay muted loop>
+                            <source src="./files/content/movie/Anakin_2.mp4" type="video/mp4">
+                        </video>
+                        <center><p style="font-size: small;">
+                            Credit : https://www.youtube.com/watch?v=ZxRl9ZYeISk 
+                        </p></center>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="container" style="max-width: 900px;">
+            <div class="row">
+                <div class="slide-container swiper">
+                    <!-- <div class="row g-0 justify-content-center" style="margin-left: -10px; margin-bottom:2px"> -->
+                    <div class="slide-content s3">
+                        <div class="card-wrapper swiper-wrapper">
+                            <!-- Video 1 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>Our method can reduce the blue shading from the light saber and relight Anakin's face to the desired lighting.</p></center>
+                                    <video class="mx-auto d-block vidmov" width="70%" autoplay muted loop>
+                                        <source src="./files/content/movie/Anakin_2_smoothlight=67250.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=ZxRl9ZYeISk 
+                                    </p></center>
+                                </div>
+                            </div>
+                            <!-- Video 6 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>
+                                        Lisa 
+                                        <img src="https://em-content.zobj.net/source/microsoft-teams/337/red-heart_2764-fe0f.png" style="vertical-align:top" width="35" alt="logo" />
+                                        </p></center>
+                                    <video class="mx-auto d-block vidmov" width="60%" muted loop>
+                                        <source src="./files/content/movie/compare_lisa_1_smoothlight=67250.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=_78XVWY1aMA
+                                    </p></center>
+                                </div>
+                            </div>
+                            <!-- Video 5 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>Our method can relight Peter Parker's face with different head poses and expressions.</p></center>
+                                    <video class="mx-auto d-block vidmov" width="60%" muted loop>
+                                        <source src="./files/content/movie/tommy_2_smoothlight=67967.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=Ys9l4wrieyw
+                                    </p></center>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <!-- <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>Our method can retain the makeup The Joker's face.</p></center>
+                                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                                        <source src="./files/content/movie/joker_2_smoothlight=64641.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=L3oOldViIgY&t=171s 
+                                    </p></center>
+                                </div>
+                            </div> -->
+                            <!-- Video 3 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>Our method can reduce the constant light alterations on Loki's face.</p></center>
+                                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                                        <source src="./files/content/movie/loki_6_smoothlight=68831.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=GRFTri0g6QY
+                                    </p></center>
+                                </div>
+                            </div>
+                            <!-- Video 4 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p>Our method can reduce the lightning effect on Loki's face.</p></center>
+                                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                                        <source src="./files/content/movie/loki_7_smoothlight=65655.mp4" type="video/mp4">
+                                    </video>
+                                    <center><p style="font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=GRFTri0g6QY
+                                    </p></center>
+                                </div>
+                            </div>
+
+                            <!-- Video 7 -->
+                            <div class="card swiper-slide">
+                                <div class="row-gg g-0 justify-content-center">
+                                    <center><p style="font-size:27px; font-weight:900;">If you made it here, thanks for your interest in DiFaReli!
+                                        <!-- <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" style="vertical-align:top" width="35" alt="logo" />  -->
+                                        <img src="https://em-content.zobj.net/source/microsoft-teams/337/folded-hands_1f64f.png" style="vertical-align:top" width="35" alt="logo" />
+                                    </p></center>
+                                    <!-- <center><p style="font-size:30px; font-weight:900;"> If you made it here, thanks for your interest in our work! </p></center> -->
+
+                                    <center><p style="font-size:small;"> (Click to play <img src="./files/box_swipe/playpause-01.svg" class="play-pause"> 
+                                        / pause <img src="./files/box_swipe/playpause-02.svg" class="play-pause"> 
+                                        drag the separator to see change the light. Click <a href="javascript:resetComparisons();"><u>here</u></a> to reset. )
+                                    </p></center>
+
+                                    <div class="img-comp-container mx-auto d-block">
+                                        <div class="img-comp-img">
+                                            <video loop="" class="slider-video slider-video-0">
+                                                <!-- <source src="./files/content/movie/joker_3light=61614.mp4#t=0.0001" type="video/mp4" /> -->
+                                                <!-- <source src="./files/content/movie/joker_3light=68364.mp4#t=0.0001" type="video/mp4" /> -->
+                                                <source src="./files/content/movie/joker_3_smoothlight=66204.mp4#t=0.0001" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="img-comp-img img-comp-overlay">
+                                            <video loop="" class="slider-video slider-video-0">
+                                                <source src="./files/content/movie/joker_3_smoothlight=61614.mp4#t=0.0001" type="video/mp4" />
+                                                <!-- <source src="./files/content/movie/joker_3light=61649.mp4#t=0.0001" type="video/mp4" /> -->
+                                            </video>
+                                        </div>
+                                    </div>
+                                    <center><p style="margin-top:500px; font-size: small;">
+                                        Credit : https://www.youtube.com/watch?v=L3oOldViIgY&t=171s 
+                                    </p></center>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Citation</h2>
+                <code>
+                    @article{...,<br>
+                    &nbsp; author = {...},<br>
+                    &nbsp; title  = {Diffusion Face Relighting},<br>
+                    &nbsp; journal = {arXiv},<br>
+                    &nbsp; year   = {2022},<br>
+                }</code>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+    <div class="container" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Acknowledgements</h2>
+                <p> This website template was borrowed from <a href="https://dreamfusion3d.github.io/"> DreamFusion </a> and <a href="https://nvlabs.github.io/eg3d/"> EG3D</a>. </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <hr class="divider"> -->
+    <script src="./files/polyfill.js.download"></script>
+    <script src="./files/yall.js.download"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="./files/scripts.js.download"></script>
+    <script src="./files/jquery.min.js.download"></script>
+    <script src="./files/bootstrap.bundle.min.js.download"></script>
+    <script src="./files/webflow.fd002feec.js.download"></script>
+
+    <!-- Import the component -->
+    <div class="end" style="margin-top: 30px;">
+    <div style="text-align: center;">
+            <a href="https://vistec.ist/vision" target="_blank"><img src="./files/content/logo/vll_logo.png" style="width: 130px; display: inline; margin: 0 100px;"></a>
+            <a href="https://vistec.ist/" target="_blank"><img src="./files/content/logo/vistec_logo.png" class="vistec-offset" style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>
+        </div>
+    </div>
+
+</body>
+<!-- Swiper JS -->
+<script src="./files/swiper/js/swiper-bundle.min.js"></script>
+<script>
+    initComparisons();
+    linkVideos(0);
+</script>
+
+<!-- JavaScript -->
+<script src="./files/swiper/js/script.js"></script>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

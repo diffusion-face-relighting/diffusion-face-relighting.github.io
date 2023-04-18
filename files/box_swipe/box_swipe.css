@@ -1,0 +1,43 @@
+/* Credit to https://www.w3schools.com/howto/howto_js_image_comparison.asp */
+
+* {
+    box-sizing: border-box;
+}
+
+.slider-video {
+    object-fit: cover;
+    /* width: 100%; */
+}
+
+.img-comp-container {
+    position: relative;
+    width: 70%;
+    /* height: 0; */
+    margin-left: 15%;
+}
+
+.img-comp-img {
+    position: absolute;
+    width: 100%;
+    /* position: relative; */
+    overflow: hidden;
+}
+
+.img-comp-img img {
+    display: block;
+}
+
+.img-comp-slider {
+    position: absolute;
+    z-index: 9;
+    cursor: ew-resize;
+    margin-left: 0%;
+    /*set the appearance of the slider:*/
+    width: 30px;
+    height: 13px;
+    opacity: 1;
+}
+
+.play-pause {
+    height: 1.3ex;
+}
