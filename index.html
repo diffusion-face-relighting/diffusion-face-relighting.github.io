@@ -87,7 +87,7 @@
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <img class="teaser" src="./files/content/image/teaser-1.png" width="900">
+        <img class="teaser" src="./files/content/image/teaser-1.png" style="width: 1000px; max-width: 100%;">
       </div>
     </div>
 
@@ -176,10 +176,10 @@
       <div class="col-md-12">
         <h2>Our pipeline</h2>
         <p>
-        The general idea of our method is simple: we first encode the input image into a feature vector that well <em>disentangles</em> the light information from other information, then we modify the light encoding and decode it. Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly. This DDIM can be trained solely on a real-world 2D face dataset wihout any ground-truth 3D or lighting data.
+        The general idea of our method is simple: we first encode the input image into a feature vector that <em>disentangles</em> the light information from other information, then we modify the light encoding and decode it. Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly. This DDIM can be trained solely on a 2D face dataset wihout any relit ground truth, 3D or lighting data.
         </p>
         <p>
-          In particular, we use off-the-shelf estimators (DECA, Arcface and DiffAE) to encode the input image into encodings of light, shape, camera, face embedding, shadow scalar, and background image, which are then fed to DDIM via "spatial" and "non-spatial" conditioning techniques. To relight the input face image, we reverse the generative process of the DDIM that is conditioned on the encodings of an input image to obtain xT. Then, the modified SH, 3D shape, and camera encodings are rendered to a new shading reference, which is then fed to produce the final relit image.
+          In particular, we use off-the-shelf estimators (DECA, Arcface and DiffAE) to encode each training image into encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a DDIM decoder conditioned on these encodings. To relight an input face image, we reverse the generative process of the DDIM conditioned on the encodings of the input image to obtain xT. Then, we modify the light encoding and decode xT back to a relit output.
         </p>
       </div>
     </div>
