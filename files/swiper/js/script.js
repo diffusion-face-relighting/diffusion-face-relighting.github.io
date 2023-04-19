@@ -1,74 +1,74 @@
 var swiper_relit = new Swiper(".s1", {
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 10,
-    // loop: true,
-    // loopedSlides:9,
-    preloadImages: true,
-    loop: false,
-    // rewind:true,
-    centerSlide: 'true',
-    fade: 'true',
-    grabCursor: 'true',
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: false,
-      dynamicMainBullets: 4,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 10,
+  // loop: true,
+  // loopedSlides:9,
+  preloadImages: true,
+  loop: false,
+  // rewind:true,
+  centerSlide: 'true',
+  fade: 'true',
+  grabCursor: 'true',
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: false,
+    dynamicMainBullets: 4,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 var swiper_shadow = new Swiper(".s2", {
-    slidesPerView: 4,
-    slidesPerGroup: 4,
-    spaceBetween: 10,
-    preloadImages: true,
-    // loop: true,
-    // loopedSlides:9,
-    loop: false,
-    // rewind:true,
-    centerSlide: 'true',
-    fade: 'true',
-    grabCursor: 'true',
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: false,
-      dynamicMainBullets: 4,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  slidesPerView: 4,
+  slidesPerGroup: 4,
+  spaceBetween: 10,
+  preloadImages: true,
+  // loop: true,
+  // loopedSlides:9,
+  loop: false,
+  // rewind:true,
+  centerSlide: 'true',
+  fade: 'true',
+  grabCursor: 'true',
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: false,
+    dynamicMainBullets: 4,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 var swiper_rot = new Swiper(".s4", {
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 10,
-    // loop: true,
-    // loopedSlides:9,
-    preloadImages: true,
-    loop: false,
-    // rewind:true,
-    centerSlide: 'true',
-    fade: 'true',
-    grabCursor: 'true',
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: false,
-      dynamicMainBullets: 4,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 10,
+  // loop: true,
+  // loopedSlides:9,
+  preloadImages: true,
+  loop: false,
+  // rewind:true,
+  centerSlide: 'true',
+  fade: 'true',
+  grabCursor: 'true',
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: false,
+    dynamicMainBullets: 4,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 swiper_rot.on('slideChange', function() {
   // Get the active slide
@@ -88,48 +88,39 @@ swiper_rot.on('slideChange', function() {
     videoEl.play();
   }
 });
-  
+
 var swiper_movie = new Swiper(".s3", {
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 10,
-    // loop: true,
-    // loopedSlides:9,
-    preloadImages: true,
-    loop: false,
-    // rewind:true,
-    centerSlide: 'true',
-    fade: 'true',
-    followFinger: false,
-    grabCursor: false,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: false,
-      dynamicMainBullets: 4,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 10,
+  // loop: true,
+  // loopedSlides:9,
+  preloadImages: true,
+  loop: false,
+  // rewind:true,
+  centerSlide: 'true',
+  fade: 'true',
+  followFinger: false,
+  grabCursor: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: false,
+    dynamicMainBullets: 4,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 swiper_movie.on('slideChange', function() {
-  // Get the active slide
-  var activeSlide = swiper_movie.slides[swiper_movie.activeIndex];
-
-  // Check if the previously active slide contains a video element with class "vidmov"
-  var prevVideoEl = swiper_movie.slides[swiper_movie.previousIndex].querySelector('.vidmov');
-  if (prevVideoEl) {
-    // If there is a video element on the previous slide, pause it
-    prevVideoEl.pause();
-  }
-  // Check if the active slide contains a video element with class "vidmov"
-  var videoEl = activeSlide.querySelector('.vidmov');
-  if (videoEl) {
-    // If there is a video element, play it
-    videoEl.play();
-  }
+  swiper_movie.slides[swiper_movie.previousIndex].querySelectorAll('.vidmov').forEach((el) => {
+    el.pause();
+  });
+  swiper_movie.slides[swiper_movie.activeIndex].querySelectorAll('.vidmov').forEach((el) => {
+    el.play();
+  });
 });
 
 swiper_movie.allowTouchMove = false;
@@ -152,8 +143,8 @@ lastBullet.style.transform = 'translateY(-5px)';
 swiper_movie.pagination.el.style.display = 'flex';
 swiper_movie.pagination.el.style.justifyContent = 'center';
 
-  // Add a listener for the swiper slideChange event
-  swiper_movie.on('slideChange', function() {
+// Add a listener for the swiper slideChange event
+swiper_movie.on('slideChange', function() {
   // Get the index of the currently active slide
   const activeIndex = swiper_movie.realIndex;
 

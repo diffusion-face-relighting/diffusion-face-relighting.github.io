@@ -57,7 +57,9 @@
   <div class="highlight-clean" style="padding-bottom: 10px;">
     <div class="container" style="max-width: 1000px;">
       <!-- <h1 class="text-center textShineBlack"> <b>DiFaReli <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" style="vertical-align:top" width="40" alt="logo" /> : Diffusion Face Relighting</b></h1> -->
-      <h1 class="text-center textShineBlack"> <b>DiFaReli<img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" style="vertical-align:top" width="25" alt="logo"/>: Diffusion Face Relighting</b></h1>
+      <h1 class="text-center textShineBlack"> <b>DiFaReli<img
+            src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png"
+            style="vertical-align:top" width="25" alt="logo" />: Diffusion Face Relighting</b></h1>
     </div>
 
     <br>
@@ -143,36 +145,38 @@
       <div class="col-md-12">
         <h2>Key results</h2>
         <ol>
-          <li>Solves highly challenging scenarios like cast shadows, strong highlights, unusual makeups, and facial accessories.</li>
+          <li>Solves highly challenging scenarios like cast shadows, strong highlights, unusual makeups, and facial
+            accessories.</li>
           <li>Bypasses the need for accurate intrinsic estimation of 3D shape, albedo, or lighting.</li>
-          <li>Only requires 2D images to train. No need for any multiview images, relit pairs, 3D or lighting ground truth! </li>
+          <li>Only requires 2D images to train. No need for any multiview images, relit pairs, 3D or lighting ground
+            truth! </li>
         </ol>
         <!-- <p> -->
-          <!-- Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is -->
-          <!-- challenging. Prior work due to the following reasons. -->
-          <!-- <br> -->
-          <!-- (1) Requirements of accurate intrinsic components : -->
-          <!-- Prior work has frequently relied on modeling the light interaction with intrinsic components (e.g., face -->
-          <!-- geometry, albedo, and lighting) to solve the relighting problem, -->
-          <!-- which is difficult to operate in the wild when the estimation is inaccurate. For example, when the input image -->
-          <!-- contains cast shadows that need to be removed, these approaches often leave behind shadow residuals in the -->
-          <!-- predicted albedo map. -->
-          <!-- <br> -->
-          <!-- (2) Training data : -->
-          <!-- Some previous studies required multiview photos, light stage data, and synthetic data with ground truth -->
-          <!-- lighting, which were difficult to scale and limited the variety of relighting scenarios. -->
-          <!-- <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to -->
-          <!-- scale and can limit the diversity of relighting scenarios. --> 
+        <!-- Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is -->
+        <!-- challenging. Prior work due to the following reasons. -->
+        <!-- <br> -->
+        <!-- (1) Requirements of accurate intrinsic components : -->
+        <!-- Prior work has frequently relied on modeling the light interaction with intrinsic components (e.g., face -->
+        <!-- geometry, albedo, and lighting) to solve the relighting problem, -->
+        <!-- which is difficult to operate in the wild when the estimation is inaccurate. For example, when the input image -->
+        <!-- contains cast shadows that need to be removed, these approaches often leave behind shadow residuals in the -->
+        <!-- predicted albedo map. -->
+        <!-- <br> -->
+        <!-- (2) Training data : -->
+        <!-- Some previous studies required multiview photos, light stage data, and synthetic data with ground truth -->
+        <!-- lighting, which were difficult to scale and limited the variety of relighting scenarios. -->
+        <!-- <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to -->
+        <!-- scale and can limit the diversity of relighting scenarios. -->
         <!-- </p> -->
         <!-- <p> -->
-          <!-- However, our work does not rely on these factors. accurate intrinsic decomposition of the face and can -->
-          <!-- In contrast, our work does not rely on these factors (i.e., accurate intrinsic component of the face) and can -->
-          <!-- be trained solely on 2D images without any 3D data, multiview images, or lighting ground truth, once given a -->
-          <!-- few -->
-          <!-- off-the-shelf estimators. -->
-          <!-- Our work is the state-of-the-art face relighting framework based on a conditional DDIM that can realistically -->
-          <!-- handle cast -->
-          <!-- shadows and relight other challenging parts, such as the ears, hair, or accessories. -->
+        <!-- However, our work does not rely on these factors. accurate intrinsic decomposition of the face and can -->
+        <!-- In contrast, our work does not rely on these factors (i.e., accurate intrinsic component of the face) and can -->
+        <!-- be trained solely on 2D images without any 3D data, multiview images, or lighting ground truth, once given a -->
+        <!-- few -->
+        <!-- off-the-shelf estimators. -->
+        <!-- Our work is the state-of-the-art face relighting framework based on a conditional DDIM that can realistically -->
+        <!-- handle cast -->
+        <!-- shadows and relight other challenging parts, such as the ears, hair, or accessories. -->
         <!-- </p> -->
       </div>
     </div>
@@ -195,8 +199,12 @@
           <!-- The main challenge is how to disan Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly.  -->
         </p>
         <p>
-        In particular, we use off-the-shelf estimators (<a href="https://deca.is.tue.mpg.de/">DECA</a>, <a href="https://insightface.ai/arcface">Arcface</a>, <a href="https://diff-ae.github.io/">DiffAE</a>, and <a href="https://github.com/ycszen/BiSeNet/blob/master/README.md">BiSeNet</a>) to encode each training image into
-        encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a <a href="https://arxiv.org/abs/2010.02502">DDIM</a>
+          In particular, we use off-the-shelf estimators (<a href="https://deca.is.tue.mpg.de/">DECA</a>, <a
+            href="https://insightface.ai/arcface">Arcface</a>, <a href="https://diff-ae.github.io/">DiffAE</a>, and <a
+            href="https://github.com/ycszen/BiSeNet/blob/master/README.md">BiSeNet</a>) to encode each training image
+          into
+          encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a <a
+            href="https://arxiv.org/abs/2010.02502">DDIM</a>
           decoder conditioned on these encodings. To relight an input face image, we reverse the generative process of
           the DDIM conditioned on the encodings of the input image to obtain xT. Then, we modify the light encoding and
           decode xT back to a relit output.
@@ -615,7 +623,8 @@
         <h2> Relighting on videos </h2>
         <p>
           We perform frame-by-frame relighting of an input video. The top shows the input video, and the bottom
-          shows our relit result. Our method produces temporally consistent results despite its frame-by-frame prediction.
+          shows our relit result. Our method produces temporally consistent results despite its frame-by-frame
+          prediction.
         </p>
       </div>
       <!-- <div class="container">
@@ -646,9 +655,19 @@
                       desired lighting.
                     </p>
                   </center>
-                  <video class="mx-auto d-block vidmov" width="70%" autoplay muted loop>
-                    <source src="./files/content/movie/Anakin_2_smoothlight=67250.mp4" type="video/mp4">
-                  </video>
+                  <div style="display: flex">
+                    <table class="table_label" style="left: 9%">
+                      <tr>
+                        <td>Input video</td>
+                      </tr>
+                      <tr>
+                        <td>Relit video</td>
+                      </tr>
+                    </table>
+                    <video class="mx-auto d-block vidmov" width="70%" autoplay muted loop>
+                      <source src="./files/content/movie/Anakin_2_smoothlight=67250.mp4" type="video/mp4">
+                    </video>
+                  </div>
                   <center>
                     <p style="font-size: small;">
                       Credit : https://www.youtube.com/watch?v=ZxRl9ZYeISk
@@ -667,9 +686,19 @@
                       <!-- style="vertical-align:top" width="35" alt="logo" /> -->
                     </p>
                   </center>
-                  <video class="mx-auto d-block vidmov" width="55%" muted loop>
-                    <source src="./files/content/movie/compare_lisa_1_smoothlight=67250.mp4" type="video/mp4">
-                  </video>
+                  <div style="display: flex">
+                    <table class="table_label" style="left: 16%">
+                      <tr>
+                        <td>Input video</td>
+                      </tr>
+                      <tr>
+                        <td>Relit video</td>
+                      </tr>
+                    </table>
+                    <video class="mx-auto d-block vidmov" width="55%" muted loop>
+                      <source src="./files/content/movie/compare_lisa_1_smoothlight=67250.mp4" type="video/mp4">
+                    </video>
+                  </div>
                   <center>
                     <p style="font-size: small;">
                       Credit : https://www.youtube.com/watch?v=_78XVWY1aMA
@@ -684,9 +713,19 @@
                     <p class="lessbottom">Our method can relight Peter Parker's face with different head poses and
                       expressions.</p>
                   </center>
-                  <video class="mx-auto d-block vidmov" width="55%" muted loop>
-                    <source src="./files/content/movie/tommy_2_smoothlight=67967.mp4" type="video/mp4">
-                  </video>
+                  <div style="display: flex">
+                    <table class="table_label" style="left: 16%">
+                      <tr>
+                        <td>Input video</td>
+                      </tr>
+                      <tr>
+                        <td>Relit video</td>
+                      </tr>
+                    </table>
+                    <video class="mx-auto d-block vidmov" width="55%" muted loop>
+                      <source src="./files/content/movie/tommy_2_smoothlight=67967.mp4" type="video/mp4">
+                    </video>
+                  </div>
                   <center>
                     <p style="font-size: small;">
                       Credit : https://www.youtube.com/watch?v=Ys9l4wrieyw
@@ -713,9 +752,19 @@
                   <center>
                     <p class="lessbottom">Our method can reduce the constant light flashing on Loki's face.</p>
                   </center>
-                  <video class="mx-auto d-block vidmov" width="70%" muted loop>
-                    <source src="./files/content/movie/loki_6_smoothlight=68831.mp4" type="video/mp4">
-                  </video>
+                  <div style="display: flex">
+                    <table class="table_label" style="left: 8%">
+                      <tr>
+                        <td>Input video</td>
+                      </tr>
+                      <tr>
+                        <td>Relit video</td>
+                      </tr>
+                    </table>
+                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                      <source src="./files/content/movie/loki_6_smoothlight=68831.mp4" type="video/mp4">
+                    </video>
+                  </div>
                   <center>
                     <p style="font-size: small;">
                       Credit : https://www.youtube.com/watch?v=GRFTri0g6QY
@@ -729,9 +778,19 @@
                   <center>
                     <p class="lessbottom">Our method can reduce the lightning effect on Loki's face.</p>
                   </center>
-                  <video class="mx-auto d-block vidmov" width="70%" muted loop>
-                    <source src="./files/content/movie/loki_7_smoothlight=65655.mp4" type="video/mp4">
-                  </video>
+                  <div style="display: flex">
+                    <table class="table_label" style="left: 8%">
+                      <tr>
+                        <td>Input video</td>
+                      </tr>
+                      <tr>
+                        <td>Relit video</td>
+                      </tr>
+                    </table>
+                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                      <source src="./files/content/movie/loki_7_smoothlight=65655.mp4" type="video/mp4">
+                    </video>
+                  </div>
                   <center>
                     <p style="font-size: small;">
                       Credit : https://www.youtube.com/watch?v=GRFTri0g6QY
@@ -754,29 +813,28 @@
                   <!-- <center><p style="font-size:30px; font-weight:900;"> If you made it here, thanks for your interest in our work! </p></center> -->
 
                   <center>
-                    <p style="font-size:small;"> (Click on the image to play
-                      / pause, and drag the separator to see different relit results. Click <a
-                        href="javascript:resetComparisons();"><u>here</u></a> to reset. )
+                    <p class="lessbottom"> Our method can relight Joker's face with his extreme makeup. Drag the
+                      separator to see different relit results.
                     </p>
                   </center>
 
                   <div class="img-comp-container mx-auto d-block">
                     <div class="img-comp-img">
-                      <video loop="" class="slider-video slider-video-0">
+                      <video class="slider-video slider-video-0 vidmov">
                         <!-- <source src="./files/content/movie/joker_3light=61614.mp4#t=0.0001" type="video/mp4" /> -->
                         <!-- <source src="./files/content/movie/joker_3light=68364.mp4#t=0.0001" type="video/mp4" /> -->
                         <source src="./files/content/movie/joker_3_smoothlight=66204.mp4#t=0.0001" type="video/mp4" />
                       </video>
                     </div>
                     <div class="img-comp-img img-comp-overlay">
-                      <video loop="" class="slider-video slider-video-0">
+                      <video class="slider-video slider-video-0 vidmov">
                         <source src="./files/content/movie/joker_3_smoothlight=61614.mp4#t=0.0001" type="video/mp4" />
                         <!-- <source src="./files/content/movie/joker_3light=61649.mp4#t=0.0001" type="video/mp4" /> -->
                       </video>
                     </div>
                   </div>
                   <center>
-                    <p style="margin-top:500px; font-size: small;">
+                    <p style="margin-top:480px; font-size: small;">
                       Credit : https://www.youtube.com/watch?v=L3oOldViIgY&t=171s
                     </p>
                   </center>
@@ -816,7 +874,8 @@
       <div class="col-md-12">
         <p style="margin-top: -20px; margin-bottom: 0"> <b>Acknowledgements:</b> This website template was borrowed from
           <a href="https://dreamfusion3d.github.io/"> DreamFusion </a> and <a href="https://nvlabs.github.io/eg3d/">
-            EG3D</a>. </p>
+            EG3D</a>.
+        </p>
       </div>
     </div>
   </div>
