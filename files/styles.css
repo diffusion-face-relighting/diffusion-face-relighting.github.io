@@ -526,6 +526,9 @@ body {
   margin-bottom: 0px !important;
 }
 
+h2 {
+  font-size: 28px;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro",Calibri,Candara,Arial,sans-serif;
     font-weight: 300;
@@ -533,7 +536,7 @@ h1, h2, h3, h4, h5, h6 {
     color: inherit;
 }
 
-p, .caption {
+p, .caption, ol {
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     margin-top: 4px;
 }
@@ -696,8 +699,8 @@ p, .caption {
 
 hr.divider {
     max-width: 1280px;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 16px;
+    margin-bottom: 16;
 }
 
 .row:not(:last-child):not(.authors) {

@@ -68,11 +68,14 @@
           <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
         </div>
         <div class="col-sm">
-          <h5 class="text-center" style="font-weight:500;"><ablack class="text-center"> Nontawat Tritrong</a></h5>
+          <h5 class="text-center" style="font-weight:500;">
+            <ablack class="text-center"> Nontawat Tritrong</a>
+          </h5>
           <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
         </div>
         <div class="col-sm">
-          <h5 class="text-center" style="font-weight:500;"><a class="text-center author" href="https://www.supasorn.com"> Supasorn Suwajanakorn </a></h5>
+          <h5 class="text-center" style="font-weight:500;"><a class="text-center author"
+              href="https://www.supasorn.com"> Supasorn Suwajanakorn </a></h5>
           <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
         </div>
       </div>
@@ -134,41 +137,46 @@
     </div>
   </div>
 
-  <!-- <hr class="divider"> -->
-  <!-- <div class="container" style="max-width: 900px;"> -->
-  <!-- <div class="row"> -->
-  <!-- <div class="col-md-12"> -->
-  <!-- <h2>Key novelty</h2> -->
-  <!-- <p> -->
-  <!-- Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is -->
-  <!-- challenging. Prior work due to the following reasons. -->
-  <!-- <br> -->
-  <!-- (1) Requirements of accurate intrinsic components : -->
-  <!-- Prior work has frequently relied on modeling the light interaction with intrinsic components (e.g., face -->
-  <!-- geometry, albedo, and lighting) to solve the relighting problem, -->
-  <!-- which is difficult to operate in the wild when the estimation is inaccurate. For example, when the input image -->
-  <!-- contains cast shadows that need to be removed, these approaches often leave behind shadow residuals in the -->
-  <!-- predicted albedo map. -->
-  <!-- <br> -->
-  <!-- (2) Training data : -->
-  <!-- Some previous studies required multiview photos, light stage data, and synthetic data with ground truth -->
-  <!-- lighting, which were difficult to scale and limited the variety of relighting scenarios. -->
-  <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to
-                    scale and can limit the diversity of relighting scenarios. -->
-  <!-- </p> -->
-  <!-- <p> -->
-  <!-- However, our work does not rely on these factors. accurate intrinsic decomposition of the face and can -->
-  <!-- In contrast, our work does not rely on these factors (i.e., accurate intrinsic component of the face) and can -->
-  <!-- be trained solely on 2D images without any 3D data, multiview images, or lighting ground truth, once given a -->
-  <!-- few -->
-  <!-- off-the-shelf estimators. -->
-  <!-- Our work is the state-of-the-art face relighting framework based on a conditional DDIM that can realistically -->
-  <!-- handle cast -->
-  <!-- shadows and relight other challenging parts, such as the ears, hair, or accessories. -->
-  <!-- </p> -->
-  <!-- </div> -->
-  <!-- </div> -->
-  <!-- </div> -->
+  <hr class="divider">
+  <div class="container" style="max-width: 900px;">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Key results</h2>
+        <ol>
+          <li>Solves highly challenging scenarios like cast shadows, strong highlights, unusual makeups, and facial accessories.</li>
+          <li>Bypasses the need for accurate intrinsic estimation of 3D shape, albedo, or lighting.</li>
+          <li>Only requires 2D images to train. No need for any multiview images, relit pairs, 3D or lighting ground truth! </li>
+        </ol>
+        <!-- <p> -->
+          <!-- Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is -->
+          <!-- challenging. Prior work due to the following reasons. -->
+          <!-- <br> -->
+          <!-- (1) Requirements of accurate intrinsic components : -->
+          <!-- Prior work has frequently relied on modeling the light interaction with intrinsic components (e.g., face -->
+          <!-- geometry, albedo, and lighting) to solve the relighting problem, -->
+          <!-- which is difficult to operate in the wild when the estimation is inaccurate. For example, when the input image -->
+          <!-- contains cast shadows that need to be removed, these approaches often leave behind shadow residuals in the -->
+          <!-- predicted albedo map. -->
+          <!-- <br> -->
+          <!-- (2) Training data : -->
+          <!-- Some previous studies required multiview photos, light stage data, and synthetic data with ground truth -->
+          <!-- lighting, which were difficult to scale and limited the variety of relighting scenarios. -->
+          <!-- <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to -->
+          <!-- scale and can limit the diversity of relighting scenarios. --> 
+        <!-- </p> -->
+        <!-- <p> -->
+          <!-- However, our work does not rely on these factors. accurate intrinsic decomposition of the face and can -->
+          <!-- In contrast, our work does not rely on these factors (i.e., accurate intrinsic component of the face) and can -->
+          <!-- be trained solely on 2D images without any 3D data, multiview images, or lighting ground truth, once given a -->
+          <!-- few -->
+          <!-- off-the-shelf estimators. -->
+          <!-- Our work is the state-of-the-art face relighting framework based on a conditional DDIM that can realistically -->
+          <!-- handle cast -->
+          <!-- shadows and relight other challenging parts, such as the ears, hair, or accessories. -->
+        <!-- </p> -->
+      </div>
+    </div>
+  </div>
 
   <hr class="divider">
   <div class="container" style="max-width: 900px;">
@@ -176,13 +184,22 @@
       <div class="col-md-12">
         <h2>Our pipeline</h2>
         <p>
-        The general idea of our method is simple: we first encode an input image into a feature vector that <em>disentangles</em> the lighting information from all other information in the image, then modify the lighting information in the vector and decode it. The challenge here is how to disentangle it well enough that the decoding will only affect the shading and not the person’s shape or identity. Our key idea is to leverage a conditional diffusion implicit model with a novel conditioning technique for this task and learn the complex light interactions implicitly via the DDIM trained solely on a 2D face dataset, without any relit ground truth, 3D or lighting data.
+          The general idea of our method is simple: we first encode an input image into a feature vector that
+          <em>disentangles</em> the lighting information from all other information in the image, then modify the
+          lighting information in the vector and decode it. The challenge here is how to disentangle it well enough that
+          the decoding will only affect the shading and not the person’s shape or identity. Our key idea is to leverage
+          a conditional diffusion implicit model with a novel conditioning technique for this task and learn the complex
+          light interactions implicitly via the DDIM trained solely on a 2D face dataset.
 
-        <!-- Our key idea is to use an off-the-shelf light estimator for encoding and a DDIM decoder that learns to disentangle the lighting information and model the complex lighting implicitly. This process can be trained solely on a 2D face dataset wihout any relit ground truth, 3D or lighting data, making it easier to scale and operate on challenging real-world scenarios. -->
-<!-- The main challenge is how to disan Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly.  -->
+          <!-- Our key idea is to use an off-the-shelf light estimator for encoding and a DDIM decoder that learns to disentangle the lighting information and model the complex lighting implicitly. This process can be trained solely on a 2D face dataset wihout any relit ground truth, 3D or lighting data, making it easier to scale and operate on challenging real-world scenarios. -->
+          <!-- The main challenge is how to disan Our key idea is to leverage a conditional diffusion implicit model (DDIM) with a novel conditioning technique to learn the complex light interactions implicitly.  -->
         </p>
         <p>
-          In particular, we use off-the-shelf estimators (DECA, Arcface and DiffAE) to encode each training image into encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a DDIM decoder conditioned on these encodings. To relight an input face image, we reverse the generative process of the DDIM conditioned on the encodings of the input image to obtain xT. Then, we modify the light encoding and decode xT back to a relit output.
+        In particular, we use off-the-shelf estimators (<a href="https://deca.is.tue.mpg.de/">DECA</a>, <a href="https://insightface.ai/arcface">Arcface</a>, <a href="https://diff-ae.github.io/">DiffAE</a>, and <a href="https://github.com/ycszen/BiSeNet/blob/master/README.md">BiSeNet</a>) to encode each training image into
+        encodings of light, shape, camera, face embedding, shadow scalar, and background image, and train a <a href="https://arxiv.org/abs/2010.02502">DDIM</a>
+          decoder conditioned on these encodings. To relight an input face image, we reverse the generative process of
+          the DDIM conditioned on the encodings of the input image to obtain xT. Then, we modify the light encoding and
+          decode xT back to a relit output.
         </p>
       </div>
     </div>
@@ -267,51 +284,25 @@
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_0"> </div>
+                  <div id="relit_fig_0" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_1"> </div>
+                  <div id="relit_fig_1" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_2"> </div>
+                  <div id="relit_fig_2" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_3"> </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_4"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_5"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_6"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_7"> </div>
+                  <div id="relit_fig_3" class="swiper_row"> </div>
                 </div>
               </div>
             </div>
@@ -319,25 +310,25 @@
             <div class="card swiper-slide">
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_8"> </div>
+                  <div id="relit_fig_4" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_9"> </div>
+                  <div id="relit_fig_5" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_10"> </div>
+                  <div id="relit_fig_6" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_11"> </div>
+                  <div id="relit_fig_7" class="swiper_row"> </div>
                 </div>
               </div>
             </div>
@@ -345,25 +336,51 @@
             <div class="card swiper-slide">
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_12"> </div>
+                  <div id="relit_fig_8" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_13"> </div>
+                  <div id="relit_fig_9" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_14"> </div>
+                  <div id="relit_fig_10" class="swiper_row"> </div>
                 </div>
               </div>
 
               <div class="row-gg g-0 justify-content-center">
                 <div class="image-content">
-                  <div id="relit_fig_15"> </div>
+                  <div id="relit_fig_11" class="swiper_row"> </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card swiper-slide">
+              <div class="row-gg g-0 justify-content-center">
+                <div class="image-content">
+                  <div id="relit_fig_12" class="swiper_row"> </div>
+                </div>
+              </div>
+
+              <div class="row-gg g-0 justify-content-center">
+                <div class="image-content">
+                  <div id="relit_fig_13" class="swiper_row"> </div>
+                </div>
+              </div>
+
+              <div class="row-gg g-0 justify-content-center">
+                <div class="image-content">
+                  <div id="relit_fig_14" class="swiper_row"> </div>
+                </div>
+              </div>
+
+              <div class="row-gg g-0 justify-content-center">
+                <div class="image-content">
+                  <div id="relit_fig_15" class="swiper_row"> </div>
                 </div>
               </div>
             </div>
@@ -530,7 +547,7 @@
           <!-- We show the results of relighting a face by rotating the light around. Our method could produce
                 plausible shadows movement under the nose. there is room for improvement to achieve physically
                 consistent cast shadows in motion.  -->
-          We present relit results when we manually move the light direction around. 
+          We present relit results when we manually move the light direction around.
           <!-- Our method can produce plausible movement of shadows under the nose. However, there is still room for improvement to achieve physically consistent cast shadows in motion -->
           <!-- We show the results of relighting a face by rotating the light around it, achieved by manually adjusting the spherical harmonics (SH) coefficients. -->
         </p>
@@ -598,7 +615,8 @@
         <h2> Relighting on videos </h2>
         <p>
           We perform frame-by-frame relighting of an input video. The top shows the input video, and the bottom
-          shows our relit result. Our method produce temporally consistent results despite its frame-by-frame prediction.
+          shows our relit result. Our method produce temporally consistent results despite its frame-by-frame
+          prediction.
         </p>
       </div>
       <!-- <div class="container">
@@ -625,7 +643,7 @@
                 <div class="row-gg g-0 justify-content-center">
                   <center>
                     <p class="lessbottom">
-                    Our method can reduce the blue shading from the light saber and relight Anakin's face to the
+                      Our method can reduce the blue shading from the light saber and relight Anakin's face to the
                       desired lighting.
                     </p>
                   </center>
@@ -644,10 +662,10 @@
                 <div class="row-gg g-0 justify-content-center">
                   <center>
                     <p class="lessbottom">
-                    Here we make Lisa's face less diffuse and has more dramatic lighting.
+                      Here we make Lisa's face less diffuse and has more dramatic lighting.
                       <!-- Lisa -->
                       <!-- <img src="https://em-content.zobj.net/source/microsoft-teams/337/red-heart_2764-fe0f.png" -->
-                        <!-- style="vertical-align:top" width="35" alt="logo" /> -->
+                      <!-- style="vertical-align:top" width="35" alt="logo" /> -->
                     </p>
                   </center>
                   <video class="mx-auto d-block vidmov" width="55%" muted loop>
@@ -664,7 +682,8 @@
               <div class="card swiper-slide">
                 <div class="row-gg g-0 justify-content-center">
                   <center>
-                    <p class="lessbottom">Our method can relight Peter Parker's face with different head poses and expressions.</p>
+                    <p class="lessbottom">Our method can relight Peter Parker's face with different head poses and
+                      expressions.</p>
                   </center>
                   <video class="mx-auto d-block vidmov" width="55%" muted loop>
                     <source src="./files/content/movie/tommy_2_smoothlight=67967.mp4" type="video/mp4">
@@ -796,8 +815,9 @@
   <div class="container" style="max-width: 900px;">
     <div class="row">
       <div class="col-md-12">
-        <p style="margin-top: -20px; margin-bottom: 0"> <b>Acknowledgements:</b> This website template was borrowed from <a href="https://dreamfusion3d.github.io/"> DreamFusion </a> and <a
-            href="https://nvlabs.github.io/eg3d/"> EG3D</a>. </p>
+        <p style="margin-top: -20px; margin-bottom: 0"> <b>Acknowledgements:</b> This website template was borrowed from
+          <a href="https://dreamfusion3d.github.io/"> DreamFusion </a> and <a href="https://nvlabs.github.io/eg3d/">
+            EG3D</a>. </p>
       </div>
     </div>
   </div>
