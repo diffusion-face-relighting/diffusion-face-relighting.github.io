@@ -874,6 +874,10 @@ model-viewer .controls {
   /* border-radius: 25px; */
   background-color: #FFF;
 }
+.swiper_row {
+  /* display: flex; */
+  /* flex-wrap: nowrap; */
+}
 .image-content,
 .card-content{
   display: flex;
