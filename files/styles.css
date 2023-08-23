@@ -819,6 +819,25 @@ model-viewer .controls {
   animation: textShine 5s linear infinite reverse;
 }
 
+.textShinePurple {
+  /* background: linear-gradient(to right, #000 20%, #6d6c6c 30%, rgb(107, 107, 107) 70%, #000 80%); */
+  /* background: conic-gradient(#000 120deg, #2b2b2b 210deg, #6d6c6c 180deg); */
+  /* background: linear-gradient(to right, #929191 50%, #3f3f3f 50%, #000000 50%); */
+  /* background: linear-gradient(to right, #3a3a3a 20%, #000000 80%, #3a3a3a 20%); */
+    background: linear-gradient(to right, #4803a1 20%, #6726bd 30%, #6726bd 70%, #4803a1 80%);
+
+
+
+  /* background: radial-gradient(ellipse, #000, #6d6c6c); */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  /* animation: textShine 3s ease-in-out infinite alternate; */
+  animation: textShine 5s linear infinite reverse;
+}
+
 @keyframes textShine {
   to {
     background-position: 200%;
