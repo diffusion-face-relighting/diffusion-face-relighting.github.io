@@ -18,7 +18,7 @@ function resize_op() {
   // $(".relit_img").css("background-size", 2400 * sc + "px");
 }
 
-function setup_slider(top_div_id, folder) {
+function setup_slider(top_div_id, folder, s1, s2) {
   const subjects = 16; 
   const n = 20;
 
@@ -69,7 +69,7 @@ function setup_slider(top_div_id, folder) {
     $(`#${top_div_id} .slider_circle`).css("left", x + "px");
     let t = (x - offset) / sliderWidth;
     let c = (1 - t) * 128 + (t) * 180;  // 0 to 180
-    let c2 = (1 - t) * 180 + (t) * 128;  // 128 to 90
+    let c2 = (1 - t) * s1 + (t) * s2;
     $(`#${top_div_id} .slider_circle`).css("background-color", `rgb(${c}, ${c}, ${c})`);
     $(`#${top_div_id} .slider_right`).css("background-color", `rgb(${c2}, ${c2}, ${c2})`);
   }
@@ -131,8 +131,8 @@ function setup_slider(top_div_id, folder) {
 }
 
 $(document).ready(function() {
-  setup_slider("sec_relight", "relight");
-  setup_slider("sec_shadow", "shadow");
+  setup_slider("sec_relight", "relight", 180, 128);
+  setup_slider("sec_shadow", "shadow", 128, 90);
   $(window).resize(function() {
     resize_op();
   });
