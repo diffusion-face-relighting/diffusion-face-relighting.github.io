@@ -120,7 +120,7 @@ function setup_slider(top_div_id, folder) {
     drag = 0;
     clearTimeout(animator);
     animator = setTimeout(animate, delay);
-    e.preventDefault(); 
+    // e.preventDefault(); 
   });
 
   $(document).on('mousemove touchmove', function(e) {
