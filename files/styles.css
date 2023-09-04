@@ -710,6 +710,12 @@ hr.divider {
     margin-bottom: 16;
 }
 
+hr.divider_intra {
+    max-width: 640px;
+    margin-top: 16px;
+    margin-bottom: 16;
+}
+
 .row:not(:last-child):not(.authors) {
     margin-bottom: 16px;
 }
