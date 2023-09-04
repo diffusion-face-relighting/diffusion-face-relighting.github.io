@@ -11,13 +11,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
   <link rel="stylesheet" href="./files/box_swipe/box_swipe.css">
-  <link rel="stylesheet" href="./files/swiper/css/swiper-bundle.min.css">
+  <!-- <link rel="stylesheet" href="./files/swiper/css/swiper-bundle.min.css"> -->
 
   <!-- Google tag (gtag.js) -->
   <script async="" src="./files/js"></script>
@@ -25,9 +27,9 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.6.2.min.js"
     integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="./files/swiper/js/slider.js"></script>
   <script src="./files/swiper/js/reshadow.js"></script>
-  <script src="./files/swiper/js/relight.js"></script>
-  <!-- <script src="./files/swiper/js/move_light.js"></script> -->
+
   <script src="./files/box_swipe/box_swipe.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -57,12 +59,10 @@
   <div class="highlight-clean" style="padding-bottom: 10px;">
     <div class="container" style="max-width: 1000px;">
       <!-- <h1 class="text-center textShineBlack"> <b>DiFaReli <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" style="vertical-align:top" width="40" alt="logo" /> : Diffusion Face Relighting</b></h1> -->
-      <h1 class="text-center textShineBlack"> <b>DiFaReli<img
+      <h1 class="text-center textShineBlack" style="line-height: 1.2; font-weight: bold"> <b>DiFaReli<img
             src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png"
-            style="vertical-align:top" width="25" alt="logo" />: Diffusion Face Relighting</b></h1>
+            style="vertical-align:top; " width="25" alt="logo" />: Diffusion Face Relighting</b></h1>
     </div>
-
-    <br>
     <div class="container" style="max-width: 900px;">
       <div class="row authors">
         <div class="col-sm">
@@ -77,27 +77,27 @@
         </div>
         <div class="col-sm">
           <h5 class="text-center" style="font-weight:500;">
-            <a class="text-center">Supasorn Suwajanakorn</a>
-            <!-- <a class="text-center author" -->
-              <!-- href="https://www.supasorn.com"> Supasorn Suwajanakorn </a> -->
+            <!-- <a class="text-center">Supasorn Suwajanakorn</a> -->
+            <a class="text-center author" href="https://www.supasorn.com"> Supasorn Suwajanakorn </a>
           </h5>
           <!-- <h6 class="text-center" style="font-weight: lighter;"> VISTEC </h6> -->
         </div>
       </div>
-      <br>
       <div class="row affiliate">
         <div class="col-sm">
-          <h4 class="text-center vistec"> VISTEC - Vidyasirimedhi Institute of Science and Technology <br> Rayong, Thailand</h4>
+          <h4 class="text-center vistec"> VISTEC - Vidyasirimedhi Institute of Science and Technology <br>Rayong,
+            Thailand</h4>
         </div>
       </div>
     </div>
-    <h4 class="text-center textShinePurple" style="margin-top: 8px;margin-bottom:17px;font-weight:bold;font-size:27px;">ICCV 2023</h4>
+    <h4 class="text-center" style="margin-top: 8px;margin-bottom:17px;font-weight:bold;font-size:27px; color:#4803a1">
+      ICCV 2023</h4>
 
 
     <div class="row">
       <div class="col-md-12 text-center">
         <!-- <img class="teaser" src="./files/content/image/teaser-1.png" style="max-width: 1300px"> -->
-        <img class="teaser" src="./files/content/image/teaser.jpg" style="max-width: 1200px">
+        <img class="teaser" src="./files/content/image/teaser.jpg" style="max-width: 1200px; width: 95%">
       </div>
     </div>
 
@@ -152,7 +152,8 @@
         <ol>
           <li>Solves highly challenging scenarios like cast shadows, strong highlights, unusual makeups, and facial
             accessories.</li>
-          <li>Bypasses the need for <em>accurate</em> intrinsic estimation of 3D shape, albedo, or lighting, yet produces realistic results.</li>
+          <li>Bypasses the need for <em>accurate</em> intrinsic estimation of 3D shape, albedo, or lighting, yet
+            produces realistic results.</li>
           <li>Only requires 2D images to train. No need for any multiview images, relit pairs, 3D or lighting ground
             truth! </li>
         </ol>
@@ -226,179 +227,61 @@
   </div>
 
   <hr class="divider">
-  <div class="container" style="max-width: 900px;">
+  <div class="container" style="max-width: 900px;" id="sec_relight">
     <div class="row">
       <div class="col-md-12">
         <h2> Relighting to match target lighting</h2>
         <p>
-          <!-- Our method can realistically relight an input image using different target lights.
-                    As a result, our method can remove the cast shadow that need to be removed for relight to match the target light.
-                    Our shading references doesn't need to contain the face wrinkles, ears or hair in order to relight that part
-                    which means that our method can bypassing the need of accurate intrisic component of the face. -->
-
           Our method can realistically relight an input image to match the lighting in a "target" image. This is done by
           estimating the SH lighting parameters of the target image and use them instead of the input's SH parameters
           during decoding by our DDIM. The slider below can be used to gradually change the lighting.
-          <!-- Notice how cast shadows can be removed or strengthened.  -->
-          <!-- Our method bypasses the need of an accurate intrinsic component of the face (e.g., 3D face, albedo or a shadow map), as our shading references do not -->
-          <!-- need to include face wrinkles, ears, or hair to relight those parts. -->
-
-          <!-- Our method use a relight  
-                    input image and a lighting encoding. We first reverse the generative process to obtain an xT, 
-                    which is then modified by changing the lighting encoding to achieve the
-                    desired lighting conditions -->
-          <!-- To relight a given input face, we reverse the generative process of the DDIM conditioned on the encodings of an input image to obtain xT, modify the light encoding, and map xT
-                    to the output using our DDIM conditioned on the modified encodings. Our method can realistically relight an input image using different target lights and 
-                    the other challenging parts can also be relight together, such as the ears, hair, or accessories. -->
         </p>
       </div>
     </div>
-  </div>
-  <div class="container" style="max-width: 900px;">
     <div class="col-sm">
-      <div class="row justify-content-center">
+      <div class="show_when_small" style="text-align: center; color: red">
+        Open this website on a desktop to see animated results!
+      </div>
+      <div class="row justify-content-center hide_when_small">
         <div class="col-md-auto">
           <center>
             <p style="font-size: small; margin-bottom: 0px;">
               Move the slider to animate the results.
             </p>
           </center>
-          <div id="slider_relit">
-            <div id="slider_relit_circle">
-              <div id="slider_relit_right"> </div>
+          <div class="slider">
+            <div class="slider_circle">
+              <div class="slider_right"> </div>
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-auto">
-                    <div class="toggle_button">
-                        <button id="relit_ani_button" value="Pause"> Pause </button>
-                    </div>
-                </div> -->
+        <div class="col-md-auto" style="padding-left: 0px;">
+          <button class="slider_toggle"><i class="fa fa-pause"></i></button>
+        </div>
       </div>
 
       <div class="slide-container swiper">
-        <div class="row g-0 justify-content-center" style="margin-left: -10px; margin-bottom:2px">
-          <div class="col-sm-gg" style="text-align: center; width: 160px">
-            <h5> Input </h5>
-          </div>
-          <div class="col-sm-gg" style="text-align: center; width: 160px">
-            <h5> Target </h5>
-          </div>
-          <div class="col-sm-gg" style="text-align: center; width: 160px">
-            <h5> Relit </h5>
-          </div>
-          <div class="col-sm-gg" style="text-align: center; width: 160px">
-            <h5> Animated </h5>
+        <div style="max-width: 640px; margin: auto">
+          <div class="flex-container justify-content-center">
+            <div class="label">
+              <h5>Input</h5>
+            </div>
+            <div class="label">
+              <h5>Target</h5>
+            </div>
+            <div class="label">
+              <h5>Output</h5>
+            </div>
+            <div class="label hide_when_small">
+              <h5>Animated</h5>
+            </div>
           </div>
         </div>
-        <div class="slide-content s1">
-          <div class="card-wrapper swiper-wrapper">
-            <div class="card swiper-slide">
 
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_0" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_1" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_2" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_3" class="swiper_row"> </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_4" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_5" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_6" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_7" class="swiper_row"> </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_8" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_9" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_10" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_11" class="swiper_row"> </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_12" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_13" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_14" class="swiper_row"> </div>
-                </div>
-              </div>
-
-              <div class="row-gg g-0 justify-content-center">
-                <div class="image-content">
-                  <div id="relit_fig_15" class="swiper_row"> </div>
-                </div>
-              </div>
-            </div>
-
+        <div id="s1" class="slide-content">
+          <div class="card-wrapper swiper-wrapper inner-content">
           </div>
+
           <div class="swiper-button-next swiper-navBtn"></div>
           <div class="swiper-button-prev swiper-navBtn"></div>
           <div class="swiper-pagination"></div>
@@ -409,147 +292,68 @@
   </div>
 
   <hr class="divider">
-  <div class="container" style="max-width: 900px;">
+  <div class="container" style="max-width: 900px;" id="sec_shadow">
     <div class="row">
       <div class="col-md-12">
-        <h2> Shadow manipulation </h2>
+        <h2>Shadow manipulation</h2>
         <p>
-          We can strengthen or attenuate cast shadows by adjusting the scalar "c" in our light encoding.
-          Our method can handle shadows cast from common accesories like eyeglasses or hats.
+        We can strengthen or attenuate cast shadows by adjusting the scalar "c" in our light encoding. Our method can handle shadows cast from common accesories like eyeglasses or hats.
         </p>
       </div>
     </div>
-  </div>
-  <div class="container" style="max-width: 738px;">
     <div class="col-sm">
-      <div class="row justify-content-center">
+      <div class="show_when_small" style="text-align: center; color: red">
+        Open this website on a desktop to see animated results!
+      </div>
+      <div class="row justify-content-center hide_when_small">
         <div class="col-md-auto">
           <center>
             <p style="font-size: small; margin-bottom: 0px;">
-              Move the slider to change the degree of cast shadows.
+              Move the slider to animate the results.
             </p>
           </center>
-          <div id="slider">
-            <div id="slider_circle">
-              <div id="slider_right"> </div>
+          <div class="slider">
+            <div class="slider_circle">
+              <div class="slider_right"> </div>
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-auto">
-                    <div class="toggle_button">
-                        <button id="reshadow_ani_button" value="Pause"> Pause </button>
-                    </div>
-                </div> -->
+        <div class="col-md-auto" style="padding-left: 0px;">
+          <button class="slider_toggle"><i class="fa fa-pause"></i></button>
+        </div>
       </div>
 
-      <div class="row justify-content-center">
-        <div class="slide-container swiper">
-          <div class="slide-content s2">
-            <div class="card-wrapper swiper-wrapper">
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_0"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_1"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_2"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_3"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_4"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_5"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_6"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_7"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_8"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_9"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_10"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_11"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_12"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_13"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_14"> </div>
-                </div>
-              </div>
-
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <div id="shadow_fig_15"> </div>
-                </div>
-              </div>
+      <div class="slide-container swiper">
+        <div style="max-width: 640px; margin: auto">
+          <div class="flex-container justify-content-center">
+            <div class="label">
+              <h5>Softer</h5>
             </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
+            <div class="label">
+              <h5><-- Shadows --></h5>
+            </div>
+            <div class="label">
+              <h5>Stronger</h5>
+            </div>
+            <div class="label hide_when_small">
+              <h5>Animated</h5>
+            </div>
           </div>
         </div>
+
+        <div id="s2" class="slide-content">
+          <div class="card-wrapper swiper-wrapper inner-content">
+          </div>
+
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
       </div>
     </div>
   </div>
+
 
   <hr class="divider">
   <div class="container" style="max-width: 900px;">
@@ -700,7 +504,7 @@
                         <td>Relit video</td>
                       </tr>
                     </table>
-                    <video class="mx-auto d-block vidmov" width="55%" muted loop>
+                    <video class="mx-auto d-block vidmov" width="55%" muted loop preload="none">
                       <source src="./files/content/movie/compare_lisa_1_smoothlight=67250.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -727,7 +531,7 @@
                         <td>Relit video</td>
                       </tr>
                     </table>
-                    <video class="mx-auto d-block vidmov" width="55%" muted loop>
+                    <video class="mx-auto d-block vidmov" width="55%" muted loop preload="none">
                       <source src="./files/content/movie/tommy_2_smoothlight=67967.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -766,7 +570,7 @@
                         <td>Relit video</td>
                       </tr>
                     </table>
-                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                    <video class="mx-auto d-block vidmov" width="70%" muted loop preload="none">
                       <source src="./files/content/movie/loki_6_smoothlight=68831.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -792,7 +596,7 @@
                         <td>Relit video</td>
                       </tr>
                     </table>
-                    <video class="mx-auto d-block vidmov" width="70%" muted loop>
+                    <video class="mx-auto d-block vidmov" width="70%" muted loop preload="none">
                       <source src="./files/content/movie/loki_7_smoothlight=65655.mp4" type="video/mp4">
                     </video>
                   </div>
@@ -825,14 +629,14 @@
 
                   <div class="img-comp-container mx-auto d-block">
                     <div class="img-comp-img">
-                      <video class="slider-video slider-video-0 vidmov">
+                      <video class="slider-video slider-video-0 vidmov" preload="none">
                         <!-- <source src="./files/content/movie/joker_3light=61614.mp4#t=0.0001" type="video/mp4" /> -->
                         <!-- <source src="./files/content/movie/joker_3light=68364.mp4#t=0.0001" type="video/mp4" /> -->
                         <source src="./files/content/movie/joker_3_smoothlight=66204.mp4#t=0.0001" type="video/mp4" />
                       </video>
                     </div>
                     <div class="img-comp-img img-comp-overlay">
-                      <video class="slider-video slider-video-0 vidmov">
+                      <video class="slider-video slider-video-0 vidmov" preload="none">
                         <source src="./files/content/movie/joker_3_smoothlight=61614.mp4#t=0.0001" type="video/mp4" />
                         <!-- <source src="./files/content/movie/joker_3light=61649.mp4#t=0.0001" type="video/mp4" /> -->
                       </video>
@@ -926,7 +730,7 @@
 
 </body>
 <!-- Swiper JS -->
-<script src="./files/swiper/js/swiper-bundle.min.js"></script>
+<!-- <script src="./files/swiper/js/swiper-bundle.min.js"></script> -->
 <script>
   initComparisons();
   linkVideos(0);

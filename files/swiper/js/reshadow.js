@@ -23,13 +23,7 @@ $(document).ready(function () {
     }
     // console.log(show_idx, show_counter)
     $(`#shadow_fig_${show_idx}`).append(`<div id='shadow_${i}' class='shadow_img' draggable='false'>`)
-
-    // Set style of display panel
-    // $(`#shadow_fig_${show_idx}`).css("width", "700px")
-    // $(`#shadow_fig_${show_idx}`).css("height", "512px")
-    // $(`#shadow_fig_${show_idx}`).css("background", "#000000")
     $(`#shadow_fig_${show_idx}`).css("text-align", "center")
-
     $(`#shadow_${i}`).css("background-position-y", `${img_size * i}px`);
   }
 

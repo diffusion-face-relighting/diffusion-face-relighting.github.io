@@ -1,10 +1,8 @@
-var swiper_relit = new Swiper(".s1", {
+var swiper_relit = new Swiper("#s1", {
   slidesPerView: 1,
   slidesPerGroup: 1,
   spaceBetween: 10,
-  // loop: true,
-  // loopedSlides:9,
-  preloadImages: true,
+  preloadImages: false,
   loop: false,
   // rewind:true,
   centerSlide: 'true',
@@ -22,13 +20,11 @@ var swiper_relit = new Swiper(".s1", {
   },
 });
 
-var swiper_shadow = new Swiper(".s2", {
-  slidesPerView: 4,
-  slidesPerGroup: 4,
+var swiper_relit = new Swiper("#s2", {
+  slidesPerView: 1,
+  slidesPerGroup: 1,
   spaceBetween: 10,
-  preloadImages: true,
-  // loop: true,
-  // loopedSlides:9,
+  preloadImages: false,
   loop: false,
   // rewind:true,
   centerSlide: 'true',
@@ -52,7 +48,7 @@ var swiper_rot = new Swiper(".s4", {
   spaceBetween: 10,
   // loop: true,
   // loopedSlides:9,
-  preloadImages: true,
+  preloadImages: false,
   loop: false,
   // rewind:true,
   centerSlide: 'true',
@@ -95,7 +91,7 @@ var swiper_movie = new Swiper(".s3", {
   spaceBetween: 10,
   // loop: true,
   // loopedSlides:9,
-  preloadImages: true,
+  preloadImages: false,
   loop: false,
   // rewind:true,
   centerSlide: 'true',
