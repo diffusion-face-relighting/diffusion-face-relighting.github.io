@@ -19,6 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
   <link rel="stylesheet" href="./files/box_swipe/box_swipe.css">
+  <link rel="stylesheet" href="./files/uiverse.css">
   <!-- <link rel="stylesheet" href="./files/swiper/css/swiper-bundle.min.css"> -->
 
   <!-- Google tag (gtag.js) -->
@@ -32,7 +33,7 @@
   <script src="./files/box_swipe/box_swipe.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-XB3PR2Y1TQ');
@@ -109,14 +110,42 @@
         </svg>Paper
       </a>
       <a class="btn btn-light mybtn" role="button" href="https://github.com/diffusion-face-relighting/difareli_code">
-        <img src="./files/content/image/github-mark.png" alt="GitHub Logo" style="margin-right: 13px; margin-left: -10px; width: 25px;">Code
+        <img src="./files/content/image/github-mark.png" alt="GitHub Logo"
+          style="margin-right: 13px; margin-left: -10px; width: 25px;">Code
       </a>
-      <a class="btn btn-light mybtn" role="button" href="https://diffusion-face-relighting-pp.github.io/">
-        <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" alt="Logo" style="margin-right: 13px; margin-left: -10px; width: 25px;">Visit DiFaReli++
+      <!-- <a class="btn btn-light mybtn_highlight" role="button" href="https://diffusion-face-relighting-pp.github.io/">
+        <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" alt="Logo"
+          style="margin-right: 13px; margin-left: -10px; width: 25px;">Visit DiFaReli++
+      </a> -->
+      <a href="https://diffusion-face-relighting-pp.github.io/" class="uiverse btn" role="button">
+        <div class="wrapper">
+          <span>
+            <!-- Your image + text goes here instead of “UIVERSE” -->
+            <img src="https://em-content.zobj.net/source/microsoft-teams/337/pinched-fingers_1f90c.png" alt="Logo"
+              style="margin-right: 8px; width: 20px; vertical-align: middle;" />
+            Visit DiFaReli++
+          </span>
+
+          <!-- All the same “circle” divs as before: -->
+          <div class="circle circle-12"></div>
+          <div class="circle circle-11"></div>
+          <div class="circle circle-10"></div>
+          <div class="circle circle-9"></div>
+          <div class="circle circle-8"></div>
+          <div class="circle circle-7"></div>
+          <div class="circle circle-6"></div>
+          <div class="circle circle-5"></div>
+          <div class="circle circle-4"></div>
+          <div class="circle circle-3"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-1"></div>
+        </div>
       </a>
+
     </div>
     <div class="highlight-clean" style="padding-bottom: 10px; margin-top:-50px; text-align:center;">
-      <span style="font-size: 18px"><a href="https://diffusion-face-relighting-pp.github.io/">DiFaReli++</a> extends this work DiFaReli <br>by improving shadow consistency and enabling relighting in a single network pass.</span>
+      <span style="font-size: 18px"><a href="https://diffusion-face-relighting-pp.github.io/">DiFaReli++</a> extends
+        this work DiFaReli <br>by improving shadow consistency and enabling relighting in a single network pass.</span>
     </div>
 
   </div>
@@ -161,9 +190,10 @@
             truth! </li>
         </ol>
         <br>
-        While prior state-of-the-art methods can <em>add</em> new shadows into an input image, the challenging task of removing or altering existing shadows remains unsolved. We focus on and solve these in-the-wild challenges! 
+        While prior state-of-the-art methods can <em>add</em> new shadows into an input image, the challenging task of
+        removing or altering existing shadows remains unsolved. We focus on and solve these in-the-wild challenges!
         <div style="text-align: center; padding-top: 10px">
-        <img class="teaser" src="./files/content/relit_cmp/cmp.jpg" style="width: 90%">
+          <img class="teaser" src="./files/content/relit_cmp/cmp.jpg" style="width: 90%">
         </div>
         <!-- <p> -->
         <!-- Relighting a face image under complex interactions (e.g., global illumination and cast shadows) is -->
@@ -179,7 +209,7 @@
         <!-- (2) Training data : -->
         <!-- Some previous studies required multiview photos, light stage data, and synthetic data with ground truth -->
         <!-- lighting, which were difficult to scale and limited the variety of relighting scenarios. -->
-        <!-- <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to -->
+        <!-- Some prior work required the multiview images, light stage data and synthetic data with ground truth lighting which hard to -->
         <!-- scale and can limit the diversity of relighting scenarios. -->
         <!-- </p> -->
         <!-- <p> -->
@@ -305,7 +335,8 @@
       <div class="col-md-12">
         <h2>Shadow manipulation</h2>
         <p>
-        We can strengthen or attenuate cast shadows by adjusting the scalar "c" in our light encoding. Our method can handle shadows cast from common accesories like eyeglasses or hats.
+          We can strengthen or attenuate cast shadows by adjusting the scalar "c" in our light encoding. Our method can
+          handle shadows cast from common accesories like eyeglasses or hats.
         </p>
       </div>
     </div>
@@ -338,7 +369,7 @@
               Softer
             </div>
             <div class="label">
-              <-- Shadows -->
+              &lt;-- Shadows --&gt;
             </div>
             <div class="label">
               Stronger
@@ -703,7 +734,8 @@
   <div class="container" style="max-width: 900px;">
     <div class="row">
       <div class="col-md-12">
-        <p style="margin-top: -10px; margin-bottom: 0"> <b>Acknowledgements:</b> This website was built upon templates borrowed from
+        <p style="margin-top: -10px; margin-bottom: 0"> <b>Acknowledgements:</b> This website was built upon templates
+          borrowed from
           <a href="https://dreamfusion3d.github.io/"> DreamFusion </a> and <a href="https://nvlabs.github.io/eg3d/">
             EG3D</a>.
         </p>
